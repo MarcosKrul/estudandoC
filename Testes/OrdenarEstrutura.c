@@ -90,13 +90,13 @@ int cadastro(struct regPessoa vet[]) {
 
 int comparaIdadeCrescente(const void* p1, const void* p2){
     struct regPessoa a = *(struct regPessoa*)p1, b = *(struct regPessoa*)p2;
-    if(a.idade == b.idade) return 1;
+    if(a.idade == b.idade) return 0;
     return a.idade>b.idade? 1 : -1;
 }
 
 int comparaIdadeDecrescente(const void* p1, const void* p2){
     struct regPessoa a = *(struct regPessoa*)p1, b = *(struct regPessoa*)p2;
-    if(a.idade == b.idade) return 1;
+    if(a.idade == b.idade) return 0;
     return a.idade>b.idade? -1 : 1;
 }
 
