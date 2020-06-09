@@ -39,11 +39,12 @@ void main (){
                 if(remover_le_elemento(le, aux)) printf("Elemento removido com sucesso! \n");
                 else printf("Não foi possível remover o elemento! \n");
                 if(getch()) system("cls"); break;
-            case 6: printf("\n"); listar_le(le); if(getch()) system("cls"); break;
+            case 6:
+                printf("\n"); listar_le(le); if(getch()) system("cls"); break;
             case 7:
                 printf("Informe o elemento: "); scanf("%d", &aux);
                 int pos;
-                if((pos = busca_bin_le(le, aux)) == -1) printf("Elemento não encontrado! \n");
+                if((pos = busca_seq_le(le, aux)) == -1) printf("Elemento não encontrado! \n");
                 else printf("Elemento encontrado na posição = %d \n", pos);
                 if(getch()) system("cls"); break;
             case 8:
