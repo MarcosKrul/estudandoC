@@ -50,7 +50,7 @@ void main (){
             case 8:
                 printf("Informe a posição: "); scanf("%d", &aux);
                 int value;
-                if(buscar_indice_le(le, aux, &value)) printf("Elemento da posição %d = %d \n", pos, value);
+                if(buscar_indice_le(le, aux, &value)) printf("Elemento da posição %d = %d \n", aux, value);
                 else printf("Não foi possível encontrar o elemento! \n");
                 if(getch()) system("cls"); break;
             case 9: break;
