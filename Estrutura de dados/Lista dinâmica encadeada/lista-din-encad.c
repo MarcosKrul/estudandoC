@@ -165,3 +165,23 @@ bool buscar_indice_lde(ListaDinEncad* lde, int pos, int* x){
     *x = aux->dado.value;
     return true;
 }
+
+ListaDinEncad* arrayToLde(int tam, int* vet){
+    ListaDinEncad* lde = cria_lde();
+    if(lde == NULL) return lde;
+    while(tam>0){
+        inserir_lde_inicio(lde, vet[tam-1]);
+        tam--;
+    }
+    return lde;
+}
+
+bool ldeToArray(ListaDinEncad* lde, int* vet){
+    if(lde == NULL) return false;
+    int i=0;
+    while(i<tamanho_lde(lde)){
+        buscar_indice_lde(lde, i, &vet[i]);
+        i++;
+    }
+    return true;
+}

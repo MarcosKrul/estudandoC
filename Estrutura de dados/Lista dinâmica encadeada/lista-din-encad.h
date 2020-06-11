@@ -8,6 +8,8 @@ typedef struct {
 
 ListaDinEncad* cria_lde();
 
+ListaDinEncad* arrayToLde(int tam, int* vet);
+
 void libera_lde(ListaDinEncad* lde);
 
 void listar_lde(ListaDinEncad* lde);
@@ -27,6 +29,8 @@ bool remover_lde_inicio(ListaDinEncad* lde);
 bool remover_lde_fim(ListaDinEncad* lde);
 
 bool remover_lde_elemento(ListaDinEncad* lde, int x);
+
+bool ldeToArray(ListaDinEncad* lde, int* vet);
 
 int tamanho_lde(ListaDinEncad* lde);
 
