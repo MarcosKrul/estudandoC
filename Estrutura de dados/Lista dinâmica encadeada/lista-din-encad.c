@@ -82,7 +82,7 @@ bool inserir_lde_fim(ListaDinEncad* lde, int x){
 }
 
 bool inserir_lde_pos(ListaDinEncad* lde, int x, int pos){
-    if(lde_vazia(lde)) return inserir_lde_inicio(lde, x);
+    if(lde_vazia(lde) || pos == 0) return inserir_lde_inicio(lde, x);
     if(pos == tamanho_lde(lde)-1) return inserir_lde_fim(lde, x);
     if(lde == NULL || pos<0) return false;
     ElementoLista* elemento = (ElementoLista*) malloc(sizeof(ElementoLista));
@@ -130,7 +130,7 @@ bool remover_lde_elemento(ListaDinEncad* lde, int x){
     if(lde == NULL || lde_vazia(lde)) return false;
     ElementoLista* elemento;
     ElementoLista* aux = (*lde);
-    while(aux != NULL && x != aux->dado.value){
+    while(aux->prox != NULL && x != aux->dado.value){
         elemento = aux;
         aux = aux->prox;
     }
