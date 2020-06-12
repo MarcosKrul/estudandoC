@@ -130,7 +130,7 @@ bool remover_lde_elemento(ListaDinEncad* lde, int x){
     if(lde == NULL || lde_vazia(lde)) return false;
     ElementoLista* elemento;
     ElementoLista* aux = (*lde);
-    while(aux->prox != NULL && x != aux->dado.value){
+    while(aux != NULL && x != aux->dado.value){
         elemento = aux;
         aux = aux->prox;
     }
