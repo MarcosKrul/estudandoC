@@ -83,15 +83,15 @@ bool inserir_lde_fim(ListaDinEncad* lde, int x){
 
 bool inserir_lde_pos(ListaDinEncad* lde, int x, int pos){
     if(lde_vazia(lde) || pos == 0) return inserir_lde_inicio(lde, x);
-    if(pos == tamanho_lde(lde)-1) return inserir_lde_fim(lde, x);
-    if(lde == NULL || pos<0) return false;
+    if(pos == tamanho_lde(lde)) return inserir_lde_fim(lde, x);
+    if(lde == NULL || pos<0 || pos > tamanho_lde(lde)) return false;
     ElementoLista* elemento = (ElementoLista*) malloc(sizeof(ElementoLista));
     if(elemento == NULL) return false;
     elemento->dado = (Integer){.value=x};
     int i;
     ElementoLista* aux = (*lde);
-    for(i=0 ; i<tamanho_lde(lde)-1 ; i++){
-        if(i == pos){
+    for(i=0 ; i<tamanho_lde(lde) ; i++){
+        if(i == pos-1){
             elemento->prox = aux->prox;
             aux->prox = elemento;
         } else aux = aux->prox;
