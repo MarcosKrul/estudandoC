@@ -109,7 +109,7 @@ void decrementaHora(Hora* h){
             h->minutos--;
         }
     } else h->segundos--;
-    if(h->minutos == 0)
+    if(h->minutos == 0 && h->segundos == 0)
         if(h->horas>0){
             h->horas--;
             h->minutos = 59;
