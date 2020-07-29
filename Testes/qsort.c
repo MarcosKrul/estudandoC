@@ -29,12 +29,12 @@ void imprimeVetor(int vet[]){
 
 int comparaCrescente(const void* p1, const void* p2){
     int a = *(int*)p1, b = *(int*)p2;
-    if(a == b) return 1;
+    if(a == b) return 0;
     return a>b? 1 : -1;
 }
 
 int comparaDecrescente(const void* p1, const void* p2){
     int a = *(int*)p1, b = *(int*)p2;
-    if(a == b) return 1;
+    if(a == b) return 0;
     return a>b? -1 : 1;
 }
