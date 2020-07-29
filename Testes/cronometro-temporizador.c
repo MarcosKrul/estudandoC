@@ -20,13 +20,12 @@ int menu();
 void help();
 void cronometro();
 void temporizador();
-void lerHora(Hora *h);
-void zerarHora(Hora* h);
-bool horaZerada(Hora* h);
-void incrementaHora(Hora* h);
-void decrementaHora(Hora* h);
-void imprimeHora(Hora h, int qnt, Hora* vet);
-
+void lerHora(Hora*);
+void zerarHora(Hora*);
+bool horaZerada(Hora*);
+void incrementaHora(Hora*);
+void decrementaHora(Hora*);
+void imprimeHora(Hora,int,Hora*);
 
 void main(){
     setlocale(LC_ALL, "ptb");
@@ -62,6 +61,8 @@ void help(){
     printf("Informe 'r' para realizar uma nova contagem no temporizador\n");
     printf("Informe 'R' para reiniciar todas as voltas do cronômetro\n");
     printf("Informe 'v' para criar uma nova volta no cronômetro\n");
+    printf("Informe '->' para avançar 10 segundos\n");
+    printf("Informe '<-' para retroceder 10 segundos\n");
     printf("Informe 'e' para voltar ao menu\n");
 }
 
@@ -107,13 +108,12 @@ void decrementaHora(Hora* h){
         if(h->minutos>0) {
             h->segundos = 59;
             h->minutos--;
+        } else if(h->horas>0){
+            h->minutos = 59;
+            h->segundos = 59;
+            h->horas--;
         }
     } else h->segundos--;
-    if(h->minutos == 0 && h->segundos == 0)
-        if(h->horas>0){
-            h->horas--;
-            h->minutos = 59;
-        }
 }
 
 void zerarHora(Hora* h){
@@ -131,6 +131,8 @@ void cronometro(){
     while(true) {
         if(kbhit()){
             atalho = getche();
+            if(atalho == 75) hora.segundos -= 9;
+            if(atalho == 77) hora.segundos += 9;
             if(atalho == 'p') pausado = !pausado;
             if(atalho == 'r') zerarHora(&hora);
             if(atalho == 'R') {zerarHora(&hora); qntVoltas=0;}
@@ -152,6 +154,8 @@ void temporizador() {
     while(true) {
         if(kbhit()){
             atalho = getche();
+            if(atalho == 75) hora.segundos -= 10;
+            if(atalho == 77) hora.segundos += 10;
             if(atalho == 'p') pausado = !pausado;
             if(atalho == 'r') lerHora(&hora);
             if(atalho == 'e') break;
