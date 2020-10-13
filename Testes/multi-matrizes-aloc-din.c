@@ -10,7 +10,7 @@ int** criarMatriz(int,int);
 void gerarMatriz(int,int,int**);
 void zerarMatriz(int,int,int**);
 void imprimirMatriz(int,int,int**);
-int** somarMatrizes(int,int,int,int**,int**);
+int** multiplicarMatrizes(int,int,int,int**,int**);
 
 int main() {
     srand(time(NULL));
@@ -25,8 +25,8 @@ int main() {
     gerarMatriz(__EQ__, __SCOMN__, matrizB);
     imprimirMatriz(__EQ__, __SCOMN__, matrizB);
 
-    printf("\n\nMatriz Soma\n");
-    matrizA = somarMatrizes(__FROW__, __EQ__, __SCOMN__, matrizA, matrizB);
+    printf("\n\nMatriz Multiplicação\n");
+    matrizA = multiplicarMatrizes(__FROW__, __EQ__, __SCOMN__, matrizA, matrizB);
     imprimirMatriz(__FROW__, __SCOMN__, matrizA);
 
     free(matrizA);
@@ -63,7 +63,7 @@ void imprimirMatriz(int row, int column, int** array) {
     }
 }
 
-int** somarMatrizes(int fRow, int equals, int sColumn, int** a, int** b){
+int** multiplicarMatrizes(int fRow, int equals, int sColumn, int** a, int** b){
     int** array = criarMatriz(fRow, sColumn);
     zerarMatriz(fRow, sColumn, array);
     for(int i=0 ; i<fRow ; i++)
